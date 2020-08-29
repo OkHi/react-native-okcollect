@@ -137,5 +137,9 @@
       "module",
       "typescript"
     ]
+  },
+  "dependencies": {
+    "@okhi/react-native-core": "^1.0.0",
+    "react-native-webview": "^10.8.2"
   }
 }
