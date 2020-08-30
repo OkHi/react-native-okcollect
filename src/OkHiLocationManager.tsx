@@ -68,6 +68,15 @@ export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
     }
   };
 
+  const handleOnError = () => {
+    onError(
+      new OkHiException({
+        code: OkHiException.NETWORK_ERROR_CODE,
+        message: OkHiException.NETWORK_ERROR_MESSAGE,
+      })
+    );
+  };
+
   const renderContent = () => {
     if (token === null) {
       return loader || <Spinner />;
@@ -87,6 +96,10 @@ export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
           }
           injectedJavaScript={Platform.OS === 'ios' ? undefined : jsAfterLoad}
           onMessage={handleOnMessage}
+          onError={handleOnError}
+          onHttpError={handleOnError}
+          geolocationEnabled={true}
+          allowsBackForwardNavigationGestures={true}
         />
       </SafeAreaView>
     );
