@@ -1,9 +1,5 @@
-import { NativeModules } from 'react-native';
+import { OkHiLocationManager } from './OkHiLocationManager';
 
-type ReactNativeOkcollectType = {
-  multiply(a: number, b: number): Promise<number>;
-};
+export * from './types';
 
-const { ReactNativeOkcollect } = NativeModules;
-
-export default ReactNativeOkcollect as ReactNativeOkcollectType;
+export default OkHiLocationManager;
