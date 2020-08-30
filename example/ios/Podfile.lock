@@ -67,6 +67,8 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - okhi-react-native-core (1.0.0):
+    - React
   - okhi-react-native-okcollect (0.1.0):
     - React
   - OpenSSL-Universal (1.0.2.19):
@@ -311,6 +313,7 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (~> 0.33.1)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - "okhi-react-native-core (from `../node_modules/@okhi/react-native-core`)"
   - okhi-react-native-okcollect (from `../..`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -363,6 +366,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  okhi-react-native-core:
+    :path: "../node_modules/@okhi/react-native-core"
   okhi-react-native-okcollect:
     :path: "../.."
   RCTRequired:
@@ -424,6 +429,7 @@ SPEC CHECKSUMS:
   FlipperKit: 6dc9b8f4ef60d9e5ded7f0264db299c91f18832e
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  okhi-react-native-core: 61b3327244f293595812b6c7c6cc7f8ba4382611
   okhi-react-native-okcollect: b3a8fa420cd85f5e82739ff070b7ce3cf4efe60e
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
   RCTRequired: cec6a34b3ac8a9915c37e7e4ad3aa74726ce4035
