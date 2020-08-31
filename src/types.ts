@@ -6,17 +6,19 @@ import type {
   OkHiLocation,
 } from '@okhi/react-native-core';
 
+export interface OkCollectSuccessResponse {
+  user: OkHiUser;
+  location: OkHiLocation;
+  auth: OkHiAuth;
+}
+
 export interface OkHiLocationManagerProps {
   auth: OkHiAuth;
   launch: boolean;
   user: OkHiUser;
   loader?: JSX.Element;
   style?: ViewStyle;
-  onSuccess: (result: {
-    user: OkHiUser;
-    location: OkHiLocation;
-    auth: OkHiAuth;
-  }) => any;
+  onSuccess: (response: OkCollectSuccessResponse) => any;
   onError: (error: OkHiException) => any;
   onCloseRequest: () => any;
   theme?: {
