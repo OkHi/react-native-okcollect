@@ -37,7 +37,7 @@ export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
       const core = new OkHiLocationManagerCore(auth);
       core.getBearerToken(user.phone).then(setToken).catch(onError);
     }
-  }, [auth, user.phone, launch, onError]);
+  }, [auth, user?.phone, launch, onError]);
 
   const handleOnMessage = ({ nativeEvent: { data } }: WebViewMessageEvent) => {
     try {
