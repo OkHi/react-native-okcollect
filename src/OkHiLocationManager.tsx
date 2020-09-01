@@ -33,7 +33,7 @@ export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   } = props;
 
   useEffect(() => {
-    if (launch) {
+    if (launch && user.phone) {
       const core = new OkHiLocationManagerCore(auth);
       core.getBearerToken(user.phone).then(setToken).catch(onError);
     }
