@@ -75,11 +75,72 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> ReactNativeOkcollect <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@okhi/react-native-okcollect&quot;</span>;
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+<span class="hljs-keyword">import</span> { Button } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  OkHiException,
+  OkHiUser,
+  requestLocationPermission,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-core&#x27;</span>;
+<span class="hljs-keyword">import</span> OkHiLocationManager, {
+  OkCollectSuccessResponse,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-okcollect&#x27;</span>;
+<span class="hljs-keyword">import</span> auth <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;OkHiAuth.js&#x27;</span>;
 
-<span class="hljs-comment">// ...</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [launch, setLaunch] = React.useState(<span class="hljs-literal">false</span>);
 
-<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> ReactNativeOkcollect.multiply(<span class="hljs-number">3</span>, <span class="hljs-number">7</span>);</code></pre>
+  useEffect(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// location permission is required to enable users to create</span>
+    <span class="hljs-comment">// addresses at their current location</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">requestPermission</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">await</span> requestLocationPermission({
+        <span class="hljs-attr">message</span>:
+          <span class="hljs-string">&#x27;Hey, we need permissions to enable you create addresses at your current location&#x27;</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Location permission required&#x27;</span>,
+        <span class="hljs-attr">buttonPositive</span>: <span class="hljs-string">&#x27;Grant&#x27;</span>,
+      });
+    }
+    requestPermission();
+  }, []);
+
+  <span class="hljs-keyword">const</span> user: OkHiUser = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Mark&#x27;</span>,
+    <span class="hljs-attr">phone</span>: <span class="hljs-string">&#x27;+254712345678&#x27;</span>, <span class="hljs-comment">// Make sure its in MSISDN standard format</span>
+  };
+
+  <span class="hljs-keyword">const</span> handleOnSuccess = <span class="hljs-keyword">async</span> (response: OkCollectSuccessResponse) =&gt; {
+    setLaunch(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// perform any logic you&#x27;d wish with user and location objects</span>
+    <span class="hljs-keyword">const</span> { user, location } = response;
+  };
+
+  <span class="hljs-keyword">const</span> handleOnError = <span class="hljs-function">(<span class="hljs-params">error: OkHiException</span>) =&gt;</span> {
+    setLaunch(<span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">console</span>.log(error.code);
+    <span class="hljs-built_in">console</span>.log(error.message);
+  };
+
+  <span class="hljs-comment">// called when user taps on the top right close button</span>
+  <span class="hljs-keyword">const</span> handleOnCloseRequest = <span class="hljs-function">() =&gt;</span> {
+    setLaunch(<span class="hljs-literal">false</span>);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span> }}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> setLaunch(true)} title=&quot;Start Verification&quot; /&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">OkHiLocationManager</span>
+        <span class="hljs-attr">auth</span>=<span class="hljs-string">{auth}</span>
+        <span class="hljs-attr">user</span>=<span class="hljs-string">{user}</span>
+        <span class="hljs-attr">onSuccess</span>=<span class="hljs-string">{handleOnSuccess}</span>
+        <span class="hljs-attr">onError</span>=<span class="hljs-string">{handleOnError}</span>
+        <span class="hljs-attr">onCloseRequest</span>=<span class="hljs-string">{handleOnCloseRequest}</span>
+        <span class="hljs-attr">launch</span>=<span class="hljs-string">{launch}</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+}</code></pre>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>
