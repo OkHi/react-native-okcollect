@@ -765,10 +765,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.2.tgz#d2f3af3fefab0bbeec6db4c2b7a3608e565a9f53"
-  integrity sha512-2Q3jEK0RjPq9TVzpsD1gfGmO/QgJwpEUuyjGNLC8GzlqARf0GDfPBQspYx/DqoPZoeMWgW+4Hg/za+qu7wYsUw==
+"@okhi/react-native-core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.4.tgz#fcb78ad095d1b2d989e576fdfe58cd01acfde74e"
+  integrity sha512-2BGe5ayPrEkcJvdMUVa8BD03OnDQMDLym7wIJ6Ld4dPrXEifdZRWzqLr9Jmr3VLf6E1KYbUM1tRiTbHEQ57tqw==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
