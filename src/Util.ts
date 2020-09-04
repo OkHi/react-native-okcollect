@@ -111,5 +111,7 @@ export const parseOkHiLocation = (location: any): OkHiLocation => {
     streetViewPanoId: location?.street_view?.pano_id,
     streetViewPanoUrl: location?.street_view?.url,
     userId: location?.user_id,
+    propertyNumber: location?.propertyNumber,
+    photo: location?.photo,
   };
 };
