@@ -1,4 +1,4 @@
-import type { OkHiLocationManagerProps } from './types';
+import type { OkHiLocationManagerProps } from './OkHiLocationManager';
 import type { OkHiAuth, OkHiLocation } from '@okhi/react-native-core';
 import { OkHiMode } from '@okhi/react-native-core';
 import type {
@@ -6,10 +6,6 @@ import type {
   OkHiLocationManagerStartMessage,
 } from './types';
 import manifest from './app.json';
-
-const DEV_FRAME_URL = 'https://dev-manager-v5.okhi.io';
-const PROD_FRAME_URL = 'https://manager-v5.okhi.io';
-const SANDBOX_FRAME_URL = 'https://sandbox-manager-v5.okhi.io';
 
 export const generateStartDataPayload = (
   props: OkHiLocationManagerProps,
@@ -63,6 +59,9 @@ export const generateStartDataPayload = (
 };
 
 export const getFrameUrl = (auth: OkHiAuth) => {
+  const DEV_FRAME_URL = 'https://dev-manager-v5.okhi.io';
+  const PROD_FRAME_URL = 'https://manager-v5.okhi.io';
+  const SANDBOX_FRAME_URL = 'https://sandbox-manager-v5.okhi.io';
   if (auth.getContext().getMode() === OkHiMode.PROD) {
     return PROD_FRAME_URL;
   }
@@ -111,5 +110,7 @@ export const parseOkHiLocation = (location: any): OkHiLocation => {
     streetViewPanoId: location?.street_view?.pano_id,
     streetViewPanoUrl: location?.street_view?.url,
     userId: location?.user_id,
+    propertyNumber: location?.propertyNumber,
+    photo: location?.photo,
   };
 };

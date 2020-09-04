@@ -1,42 +1,4 @@
-import type { ViewStyle } from 'react-native';
-import type {
-  OkHiAuth,
-  OkHiException,
-  OkHiUser,
-  OkHiLocation,
-} from '@okhi/react-native-core';
-
-export interface OkCollectSuccessResponse {
-  user: OkHiUser;
-  location: OkHiLocation;
-  auth: OkHiAuth;
-}
-
-export interface OkHiLocationManagerProps {
-  auth: OkHiAuth;
-  launch: boolean;
-  user: OkHiUser;
-  loader?: JSX.Element;
-  style?: ViewStyle;
-  onSuccess: (response: OkCollectSuccessResponse) => any;
-  onError: (error: OkHiException) => any;
-  onCloseRequest: () => any;
-  theme?: {
-    appBar?: {
-      backgroundColor?: string;
-      logo?: string;
-    };
-    colors?: {
-      primary?: string;
-    };
-  };
-  config?: {
-    streetView?: boolean;
-    appBar?: {
-      visible?: boolean;
-    };
-  };
-}
+import type { OkHiUser } from '@okhi/react-native-core';
 
 export interface OkHiLocationManagerStartDataPayload {
   style?: {
