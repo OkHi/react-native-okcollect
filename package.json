@@ -1,6 +1,6 @@
 {
   "name": "@okhi/react-native-okcollect",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The OkCollect React Native library enables you to launch OkHi from your app and collect accurate addresses from your users.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
