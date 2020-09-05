@@ -2,6 +2,10 @@
 
 The OkCollect React Native library enables you to launch OkHi from your app and collect accurate addresses from your users.
 
+## Prerequisite libraries
+
+- [@okhi/react-native-core](https://github.com/OkHi/react-native-core#okhireact-native-core)
+
 ## Installation
 
 ```sh
@@ -78,6 +82,14 @@ function App() {
   );
 }
 ```
+
+## Documentation
+
+- [Guides](https://docs.okhi.co/v/v5.0-alpha/okhi-on-your-react-native-app)
+
+- [Best Practices](https://docs.google.com/document/d/1kxolQJ4n6tEgReuqVLYpDVMW--xvqv5UQ7AdvrN0Uw0)
+
+- [API Reference](https://okhi.github.io/react-native-core/)
 
 ## Contributing
 
