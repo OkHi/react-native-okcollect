@@ -89,7 +89,7 @@ function App() {
 
 - [Best Practices](https://docs.google.com/document/d/1kxolQJ4n6tEgReuqVLYpDVMW--xvqv5UQ7AdvrN0Uw0)
 
-- [API Reference](https://okhi.github.io/react-native-core/)
+- [API Reference](https://okhi.github.io/react-native-okcollect/)
 
 ## Contributing
 
