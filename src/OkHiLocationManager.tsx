@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Modal, SafeAreaView, Platform } from 'react-native';
 import { WebView, WebViewMessageEvent } from 'react-native-webview';
 import { Spinner } from './Spinner';
-import type { OkHiLocationManagerResponse } from './types';
+import type {
+  OkHiLocationManagerResponse,
+  OkHiLocationManagerProps,
+} from './types';
 import { OkHiLocationManagerCore } from './OkHiLocationManagerCore';
 import {
   getFrameUrl,
@@ -11,42 +14,11 @@ import {
   parseOkHiLocation,
 } from './Util';
 import { OkHiException } from '@okhi/react-native-core';
-import type { ViewStyle } from 'react-native';
-import type { OkHiAuth, OkHiUser, OkHiLocation } from '@okhi/react-native-core';
 
-export interface OkCollectSuccessResponse {
-  user: OkHiUser;
-  location: OkHiLocation;
-  auth: OkHiAuth;
-}
-
-export interface OkHiLocationManagerProps {
-  auth: OkHiAuth;
-  launch: boolean;
-  user: OkHiUser;
-  loader?: JSX.Element;
-  style?: ViewStyle;
-  onSuccess: (response: OkCollectSuccessResponse) => any;
-  onError: (error: OkHiException) => any;
-  onCloseRequest: () => any;
-  theme?: {
-    appBar?: {
-      backgroundColor?: string;
-      logo?: string;
-    };
-    colors?: {
-      primary?: string;
-    };
-  };
-  config?: {
-    streetView?: boolean;
-    appBar?: {
-      visible?: boolean;
-    };
-  };
-}
-
-export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
+/**
+ * The OkHiLocationManager React Component is used to display an in app modal, enabling the user to quickly create an accurate OkHi address.
+ */
+const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   const [token, setToken] = useState<string | null>(null);
   const defaultStyle = { flex: 1 };
   const style = props.style
@@ -142,3 +114,5 @@ export const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
     </Modal>
   );
 };
+
+export default OkHiLocationManager;
