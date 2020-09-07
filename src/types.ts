@@ -30,8 +30,7 @@ export interface OkCollectSuccessResponse {
  */
 export interface OkHiLocationManagerProps {
   /**
-   * **Required:** The OkHiAuth object containing information about your app and it's context.
-   * Defined here: https://okhi.github.io/react-native-core
+   * **Required:** The [OkHiAuth](https://okhi.github.io/react-native-core/classes/okhiauth.html) object containing information about your app and it's context.
    */
   auth: OkHiAuth;
   /**
@@ -39,8 +38,7 @@ export interface OkHiLocationManagerProps {
    */
   launch: boolean;
   /**
-   * **Required:** A defined OkHiUser object, with a mandatory "phone" key property.
-   * Defined here: https://okhi.github.io/react-native-core
+   * **Required:** A defined [OkHiUser](https://okhi.github.io/react-native-core/interfaces/okhiuser.html) object, with a mandatory "phone" key property.
    */
   user: OkHiUser;
   /**
