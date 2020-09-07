@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import OkHiLocationManager from '@okhi/react-native-okcollect';
 import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
-import { branchId, clientKey, mode } from './secret.json';
+import { branchId, clientKey, mode, phone } from './secret.json';
 
 export default function App() {
+  const [launch, setLaunch] = React.useState(false);
+
   const context = new OkHiContext({
     mode,
     app: {
@@ -24,11 +26,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Button title="Create Address" onPress={() => setLaunch(!launch)} />
       <OkHiLocationManager
         auth={auth}
-        launch={true}
+        launch={launch}
         user={{
-          phone: '+254700110590',
+          phone,
         }}
         onError={console.log}
         onSuccess={console.log}
@@ -44,7 +47,7 @@ export default function App() {
           },
         }}
         config={{ appBar: { visible: false }, streetView: false }}
-        loader={<Text>Loading..</Text>}
+        // loader={<Text>Loading..</Text>}
         // style={{ padding: 30, backgroundColor: 'red' }}
       />
     </View>
