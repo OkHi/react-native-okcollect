@@ -1,5 +1,7 @@
-import { OkHiLocationManager } from './OkHiLocationManager';
+import OkHiLocationManager from './OkHiLocationManager';
 
-export * from './types';
+export * from './OkHiLocationManager';
+
+export { OkHiLocationManagerProps, OkCollectSuccessResponse } from './types';
 
 export default OkHiLocationManager;
