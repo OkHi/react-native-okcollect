@@ -1,4 +1,4 @@
-import type { OkHiLocationManagerProps } from './OkHiLocationManager';
+import type { OkHiLocationManagerProps } from './types';
 import type { OkHiAuth, OkHiLocation } from '@okhi/react-native-core';
 import { OkHiMode } from '@okhi/react-native-core';
 import type {
@@ -7,6 +7,9 @@ import type {
 } from './types';
 import manifest from './app.json';
 
+/**
+ * @ignore
+ */
 export const generateStartDataPayload = (
   props: OkHiLocationManagerProps,
   authToken: string
@@ -58,6 +61,9 @@ export const generateStartDataPayload = (
   return payload;
 };
 
+/**
+ * @ignore
+ */
 export const getFrameUrl = (auth: OkHiAuth) => {
   const DEV_FRAME_URL = 'https://dev-manager-v5.okhi.io';
   const PROD_FRAME_URL = 'https://manager-v5.okhi.io';
@@ -71,6 +77,9 @@ export const getFrameUrl = (auth: OkHiAuth) => {
   return SANDBOX_FRAME_URL;
 };
 
+/**
+ * @ignore
+ */
 export const generateJavaScriptStartScript = (startPayload: {
   message: OkHiLocationManagerStartMessage;
   payload: OkHiLocationManagerStartDataPayload;
@@ -93,6 +102,9 @@ export const generateJavaScriptStartScript = (startPayload: {
   return { jsBeforeLoad, jsAfterLoad };
 };
 
+/**
+ * @ignore
+ */
 export const parseOkHiLocation = (location: any): OkHiLocation => {
   return {
     id: location?.id,
