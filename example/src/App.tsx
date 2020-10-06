@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import OkHiLocationManager from '@okhi/react-native-okcollect';
+import OkHiLocationManager, {
+  canStartAddressCreation,
+} from '@okhi/react-native-okcollect';
 import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
 import { branchId, clientKey, mode, phone } from './secret.json';
 
@@ -26,7 +28,17 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Button title="Create Address" onPress={() => setLaunch(!launch)} />
+      <Button
+        title="Create Address"
+        onPress={async () => {
+          const canStart = await canStartAddressCreation({
+            requestServices: true,
+          });
+          if (canStart) {
+            setLaunch(!launch);
+          }
+        }}
+      />
       <OkHiLocationManager
         auth={auth}
         launch={launch}
