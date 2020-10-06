@@ -2734,6 +2734,9 @@ img {
 		<li class=" tsd-kind-function">
 			<a href="globals.html#spinner" class="tsd-kind-icon">Spinner</a>
 		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#canstartaddresscreation" class="tsd-kind-icon">can<wbr>Start<wbr>Address<wbr>Creation</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
@@ -2858,6 +2861,7 @@ img {
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function"><a href="globals.html#okhilocationmanager" class="tsd-kind-icon">Ok<wbr>HiLocation<wbr>Manager</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#spinner" class="tsd-kind-icon">Spinner</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#canstartaddresscreation" class="tsd-kind-icon">can<wbr>Start<wbr>Address<wbr>Creation</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2875,7 +2879,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okcollect/blob/b8d723d/src/OkHiLocationManager.tsx#L21">src/OkHiLocationManager.tsx:21</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okcollect/blob/b5115fb/src/OkHiLocationManager.tsx#L21">src/OkHiLocationManager.tsx:21</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2903,7 +2907,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okcollect/blob/b8d723d/src/Spinner.tsx#L7">src/Spinner.tsx:7</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okcollect/blob/b5115fb/src/Spinner.tsx#L7">src/Spinner.tsx:7</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2912,6 +2916,40 @@ img {
 							</div>
 						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="canstartaddresscreation" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> can<wbr>Start<wbr>Address<wbr>Creation</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">can<wbr>Start<wbr>Address<wbr>Creation<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>requestServices<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okcollect/blob/b5115fb/src/index.tsx#L19">src/index.tsx:19</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Checks whether all necessary permissions and services are available in order to start the address creation process.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> configuration: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>requestServices<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> }</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Object that determines whether or not to request these permissions and services from the user.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<p>A promise that resolves to a boolean value indicating whether or not all conditions are met to start the address creation process.</p>
 					</li>
 				</ul>
 			</section>
