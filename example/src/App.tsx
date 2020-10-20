@@ -1,30 +1,28 @@
 import * as React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import OkHiLocationManager, {
-  canStartAddressCreation,
-} from '@okhi/react-native-okcollect';
-import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
-import { branchId, clientKey, mode, phone } from './secret.json';
+import { canStartAddressCreation } from '@okhi/react-native-okcollect';
+// import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
+// import { branchId, clientKey, mode, phone } from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
 
-  const context = new OkHiContext({
-    mode,
-    app: {
-      name: 'My Awesome App',
-      build: 1,
-      version: '1.0.0',
-    },
-  });
+  // const context = new OkHiContext({
+  //   mode,
+  //   app: {
+  //     name: 'My Awesome App',
+  //     build: 1,
+  //     version: '1.0.0',
+  //   },
+  // });
 
-  const auth = OkHiAuth.withContext(
-    {
-      branchId,
-      clientKey,
-    },
-    context
-  );
+  // const auth = OkHiAuth.withContext(
+  //   {
+  //     branchId,
+  //     clientKey,
+  //   },
+  //   context
+  // );
 
   return (
     <View style={styles.container}>
@@ -39,7 +37,7 @@ export default function App() {
           }
         }}
       />
-      <OkHiLocationManager
+      {/* <OkHiLocationManager
         auth={auth}
         launch={launch}
         user={{
@@ -61,7 +59,7 @@ export default function App() {
         config={{ appBar: { visible: false }, streetView: false }}
         // loader={<Text>Loading..</Text>}
         // style={{ padding: 30, backgroundColor: 'red' }}
-      />
+      /> */}
     </View>
   );
 }
