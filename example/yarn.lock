@@ -760,10 +760,9 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.1.0":
+"@okhi/react-native-core@https://github.com/OkHi/react-native-core.git#develop":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.1.0.tgz#97e2cfa6bf54cc9b593900ac82c2fd8f206f5639"
-  integrity sha512-O0x90bC53jVvlPEaa19o+zlH1ZadcJAOzewnFwcgcJipKQc8GtRcveV9r5ZDa4ahzu76gmlEAH1yE3UumAPexw==
+  resolved "https://github.com/OkHi/react-native-core.git#90167fb573a16aae78d70eea027814435d62107e"
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
