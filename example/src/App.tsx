@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, Text } from 'react-native';
 import OkHiLocationManager, {
   canStartAddressCreation,
 } from '@okhi/react-native-okcollect';
@@ -61,8 +62,8 @@ export default function App() {
           },
         }}
         config={{ appBar: { visible: true }, streetView: true }}
-        // loader={<Text>Loading..</Text>}
-        // style={{ padding: 30, backgroundColor: 'red' }}
+        loader={<Text>Loading..</Text>}
+        style={{ padding: 30, backgroundColor: 'red' }}
       />
     </View>
   );
