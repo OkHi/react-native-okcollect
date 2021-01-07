@@ -44,6 +44,8 @@ export default function App() {
         launch={launch}
         user={{
           phone,
+          firstName: 'Kiano',
+          lastName: 'Julius',
         }}
         onError={console.log}
         onSuccess={console.log}
@@ -58,7 +60,7 @@ export default function App() {
             primary: '#333',
           },
         }}
-        config={{ appBar: { visible: false }, streetView: false }}
+        config={{ appBar: { visible: true }, streetView: true }}
         // loader={<Text>Loading..</Text>}
         // style={{ padding: 30, backgroundColor: 'red' }}
       />
