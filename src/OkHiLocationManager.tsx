@@ -13,8 +13,7 @@ import {
   generateStartDataPayload,
   parseOkHiLocation,
 } from './Util';
-import { OkHiException } from '@okhi/react-native-core';
-
+import { OkHiException, ErrorTracking } from '@okhi/react-native-core';
 /**
  * The OkHiLocationManager React Component is used to display an in app modal, enabling the user to quickly create an accurate OkHi address.
  */
@@ -35,6 +34,8 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
     launch,
   } = props;
 
+  ErrorTracking.setExceptionUser(user);
+
   useEffect(() => {
     if (launch && user.phone) {
       const core = new OkHiLocationManagerCore(auth);
@@ -52,6 +53,10 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
             message: response.payload.toString(),
           })
         );
+        ErrorTracking.captureException(
+          'fatal_exit',
+          response.payload.toString()
+        );
       } else if (response.message === 'exit_app') {
         onCloseRequest();
       } else {
@@ -60,8 +65,13 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
           location: parseOkHiLocation(response.payload.location),
           auth: auth,
         });
+        ErrorTracking.setExceptionUser(response.payload.user);
       }
     } catch (error) {
+      ErrorTracking.captureException(
+        OkHiException.UNKNOWN_ERROR_CODE,
+        error.message
+      );
       onError(
         new OkHiException({
           code: OkHiException.UNKNOWN_ERROR_CODE,
