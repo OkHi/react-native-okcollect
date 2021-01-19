@@ -1563,7 +1563,7 @@
 
 "@okhi/react-native-core@https://github.com/OkHi/react-native-core.git#with-sentry":
   version "1.2.0"
-  resolved "https://github.com/OkHi/react-native-core.git#1c1c9d7a478d4409ee5ce63c241fff160cb416c8"
+  resolved "https://github.com/OkHi/react-native-core.git#34e256745879d4d11fa029b73850e54e58c00a16"
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
