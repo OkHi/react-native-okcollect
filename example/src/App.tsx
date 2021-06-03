@@ -1,33 +1,13 @@
 // /* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-// import { StyleSheet, View, Button, Text } from 'react-native';
-import { StyleSheet, View, Button } from 'react-native';
-// import OkHiLocationManager, {
-//   canStartAddressCreation,
-// } from '@okhi/react-native-okcollect';
-import { canStartAddressCreation } from '@okhi/react-native-okcollect';
-// import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
-// import { branchId, clientKey, mode, phone } from './secret.json';
+import { StyleSheet, View, Button, Text } from 'react-native';
+import OkHiLocationManager, {
+  canStartAddressCreation,
+} from '@okhi/react-native-okcollect';
+import { phone } from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
-
-  // const context = new OkHiContext({
-  //   mode,
-  //   app: {
-  //     name: 'My Awesome App',
-  //     build: 1,
-  //     version: '1.0.0',
-  //   },
-  // });
-
-  // const auth = OkHiAuth.withContext(
-  //   {
-  //     branchId,
-  //     clientKey,
-  //   },
-  //   context
-  // );
 
   return (
     <View style={styles.container}>
@@ -42,8 +22,7 @@ export default function App() {
           }
         }}
       />
-      {/* <OkHiLocationManager
-        auth={auth}
+      <OkHiLocationManager
         launch={launch}
         user={{
           phone,
@@ -56,8 +35,7 @@ export default function App() {
         theme={{
           appBar: {
             backgroundColor: '#333',
-            logo:
-              'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
+            logo: 'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
           },
           colors: {
             primary: '#333',
@@ -66,7 +44,7 @@ export default function App() {
         config={{ appBar: { visible: true }, streetView: true }}
         loader={<Text>Loading..</Text>}
         style={{ padding: 30, backgroundColor: 'red' }}
-      /> */}
+      />
     </View>
   );
 }
