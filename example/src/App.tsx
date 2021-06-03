@@ -4,28 +4,10 @@ import { StyleSheet, View, Button, Text } from 'react-native';
 import OkHiLocationManager, {
   canStartAddressCreation,
 } from '@okhi/react-native-okcollect';
-import { OkHiAuth, OkHiContext } from '@okhi/react-native-core';
-import { branchId, clientKey, mode, phone } from './secret.json';
+import { phone } from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
-
-  const context = new OkHiContext({
-    mode,
-    app: {
-      name: 'My Awesome App',
-      build: 1,
-      version: '1.0.0',
-    },
-  });
-
-  const auth = OkHiAuth.withContext(
-    {
-      branchId,
-      clientKey,
-    },
-    context
-  );
 
   return (
     <View style={styles.container}>
@@ -41,7 +23,6 @@ export default function App() {
         }}
       />
       <OkHiLocationManager
-        auth={auth}
         launch={launch}
         user={{
           phone,
