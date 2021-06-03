@@ -43,7 +43,7 @@ export default function App() {
         }}
         config={{ appBar: { visible: true }, streetView: true }}
         loader={<Text>Loading..</Text>}
-        style={{ padding: 30, backgroundColor: 'red' }}
+        style={styles.locationManager}
       />
     </View>
   );
@@ -54,5 +54,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  locationManager: {
+    padding: 30,
+    backgroundColor: 'red',
   },
 });
