@@ -13,34 +13,34 @@ import {
   generateStartDataPayload,
   parseOkHiLocation,
 } from './Util';
-import { OkHiException } from '@okhi/react-native-core';
+import {
+  ApplicationConfiguration,
+  OkHiException,
+} from '@okhi/react-native-core';
 
 /**
  * The OkHiLocationManager React Component is used to display an in app modal, enabling the user to quickly create an accurate OkHi address.
  */
 const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   const [token, setToken] = useState<string | null>(null);
+  const [
+    applicationConfiguration,
+    setApplicationConfiguration,
+  ] = useState<ApplicationConfiguration | null>(null);
   const defaultStyle = { flex: 1 };
   const style = props.style
     ? { ...props.style, ...defaultStyle }
     : defaultStyle;
 
-  const {
-    auth,
-    user,
-    onSuccess,
-    onCloseRequest,
-    onError,
-    loader,
-    launch,
-  } = props;
+  const { user, onSuccess, onCloseRequest, onError, loader, launch } = props;
 
   useEffect(() => {
     if (launch && user.phone) {
-      const core = new OkHiLocationManagerCore(auth);
+      const core = new OkHiLocationManagerCore();
       core.getBearerToken(user.phone).then(setToken).catch(onError);
+      core.getConfiguration().then(setApplicationConfiguration).catch(onError);
     }
-  }, [auth, user?.phone, launch, onError]);
+  }, [user.phone, launch, onError]);
 
   const handleOnMessage = ({ nativeEvent: { data } }: WebViewMessageEvent) => {
     try {
@@ -58,7 +58,7 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
         onSuccess({
           ...response.payload,
           location: parseOkHiLocation(response.payload.location),
-          auth: auth,
+          applicationConfiguration: applicationConfiguration as ApplicationConfiguration,
         });
       }
     } catch (error) {
@@ -81,19 +81,19 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   };
 
   const renderContent = () => {
-    if (token === null) {
+    if (token === null || applicationConfiguration == null) {
       return loader || <Spinner />;
     }
 
     const { jsAfterLoad, jsBeforeLoad } = generateJavaScriptStartScript({
       message: 'select_location',
-      payload: generateStartDataPayload(props, token),
+      payload: generateStartDataPayload(props, token, applicationConfiguration),
     });
 
     return (
       <SafeAreaView style={style}>
         <WebView
-          source={{ uri: getFrameUrl(auth) }}
+          source={{ uri: getFrameUrl(applicationConfiguration) }}
           injectedJavaScriptBeforeContentLoaded={
             Platform.OS === 'ios' ? jsBeforeLoad : undefined
           }

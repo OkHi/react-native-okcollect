@@ -1,5 +1,8 @@
 import type { OkHiLocationManagerProps } from './types';
-import type { OkHiAuth, OkHiLocation } from '@okhi/react-native-core';
+import type {
+  ApplicationConfiguration,
+  OkHiLocation,
+} from '@okhi/react-native-core';
 import { OkHiMode } from '@okhi/react-native-core';
 import type {
   OkHiLocationManagerStartDataPayload,
@@ -12,7 +15,8 @@ import manifest from './app.json';
  */
 export const generateStartDataPayload = (
   props: OkHiLocationManagerProps,
-  authToken: string
+  authToken: string,
+  applicationConfiguration: ApplicationConfiguration
 ): OkHiLocationManagerStartDataPayload => {
   const payload: any = {};
   payload.style = !props.theme
@@ -21,7 +25,7 @@ export const generateStartDataPayload = (
         base: {
           color: props.theme?.colors?.primary,
           logo: props.theme?.appBar?.logo,
-          name: props.auth.getContext().getAppMeta()?.name,
+          name: applicationConfiguration.app.name,
         },
       };
   payload.user = {
@@ -34,11 +38,11 @@ export const generateStartDataPayload = (
   };
   payload.context = {
     container: {
-      name: props.auth.getContext().getAppMeta()?.name,
-      version: props.auth.getContext().getAppMeta()?.version,
+      name: applicationConfiguration.app.name,
+      version: applicationConfiguration.app.version,
     },
     developer: {
-      name: props.auth.getContext().getDeveloper(),
+      name: applicationConfiguration.context.developer,
     },
     library: {
       name: manifest.name,
@@ -64,14 +68,16 @@ export const generateStartDataPayload = (
 /**
  * @ignore
  */
-export const getFrameUrl = (auth: OkHiAuth) => {
+export const getFrameUrl = (
+  applicationConfiguration: ApplicationConfiguration
+) => {
   const DEV_FRAME_URL = 'https://dev-manager-v5.okhi.io';
   const PROD_FRAME_URL = 'https://manager-v5.okhi.io';
   const SANDBOX_FRAME_URL = 'https://sandbox-manager-v5.okhi.io';
-  if (auth.getContext().getMode() === OkHiMode.PROD) {
+  if (applicationConfiguration.context.mode === OkHiMode.PROD) {
     return PROD_FRAME_URL;
   }
-  if (auth.getContext().getMode() === 'dev') {
+  if (applicationConfiguration.context.mode === 'dev') {
     return DEV_FRAME_URL;
   }
   return SANDBOX_FRAME_URL;
