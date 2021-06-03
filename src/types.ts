@@ -3,7 +3,6 @@ import type {
   OkHiUser,
   OkHiLocation,
   OkHiException,
-  ApplicationConfiguration,
 } from '@okhi/react-native-core';
 
 /**
@@ -19,8 +18,6 @@ export interface OkCollectSuccessResponse {
    * The [OkHiLocation](https://okhi.github.io/react-native-core/interfaces/okhilocation.html) object containing information about the newly created user.
    */
   location: OkHiLocation;
-
-  applicationConfiguration: ApplicationConfiguration;
 }
 
 /**
