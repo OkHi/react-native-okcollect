@@ -35,8 +35,7 @@ export default function App() {
         theme={{
           appBar: {
             backgroundColor: '#333',
-            logo:
-              'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
+            logo: 'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
           },
           colors: {
             primary: '#333',
@@ -44,7 +43,7 @@ export default function App() {
         }}
         config={{ appBar: { visible: true }, streetView: true }}
         loader={<Text>Loading..</Text>}
-        style={{ padding: 30, backgroundColor: 'red' }}
+        style={styles.locationManager}
       />
     </View>
   );
@@ -55,5 +54,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  locationManager: {
+    padding: 30,
+    backgroundColor: 'red',
   },
 });

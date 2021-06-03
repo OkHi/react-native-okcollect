@@ -23,10 +23,8 @@ import {
  */
 const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   const [token, setToken] = useState<string | null>(null);
-  const [
-    applicationConfiguration,
-    setApplicationConfiguration,
-  ] = useState<ApplicationConfiguration | null>(null);
+  const [applicationConfiguration, setApplicationConfiguration] =
+    useState<ApplicationConfiguration | null>(null);
   const defaultStyle = { flex: 1 };
   const style = props.style
     ? { ...props.style, ...defaultStyle }
@@ -58,7 +56,8 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
         onSuccess({
           ...response.payload,
           location: parseOkHiLocation(response.payload.location),
-          applicationConfiguration: applicationConfiguration as ApplicationConfiguration,
+          applicationConfiguration:
+            applicationConfiguration as ApplicationConfiguration,
         });
       }
     } catch (error) {
