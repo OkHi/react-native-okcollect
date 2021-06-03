@@ -56,8 +56,6 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
         onSuccess({
           ...response.payload,
           location: parseOkHiLocation(response.payload.location),
-          applicationConfiguration:
-            applicationConfiguration as ApplicationConfiguration,
         });
       }
     } catch (error) {
