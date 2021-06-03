@@ -3,7 +3,6 @@ import { StyleSheet, View, Button, Text } from 'react-native';
 import OkHiLocationManager, {
   canStartAddressCreation,
 } from '@okhi/react-native-okcollect';
-import { phone } from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
@@ -24,7 +23,7 @@ export default function App() {
       <OkHiLocationManager
         launch={launch}
         user={{
-          phone,
+          phone: '+254700110590',
           firstName: 'Kiano',
           lastName: 'Julius',
         }}
