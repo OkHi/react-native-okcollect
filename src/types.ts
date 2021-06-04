@@ -2,7 +2,6 @@ import type { ViewStyle } from 'react-native';
 import type {
   OkHiUser,
   OkHiLocation,
-  OkHiAuth,
   OkHiException,
 } from '@okhi/react-native-core';
 
@@ -19,20 +18,12 @@ export interface OkCollectSuccessResponse {
    * The [OkHiLocation](https://okhi.github.io/react-native-core/interfaces/okhilocation.html) object containing information about the newly created user.
    */
   location: OkHiLocation;
-  /**
-   * The [OkHiAuth](https://okhi.github.io/react-native-core/classes/okhiauth.html) object containing information about your app and it's context.
-   */
-  auth: OkHiAuth;
 }
 
 /**
  * The OkHiLocationManager exposes props that you can use to customise it's functionality and appearance.
  */
 export interface OkHiLocationManagerProps {
-  /**
-   * **Required:** The [OkHiAuth](https://okhi.github.io/react-native-core/classes/okhiauth.html) object containing information about your app and it's context.
-   */
-  auth: OkHiAuth;
   /**
    * **Required:** A boolean flag that determines whether or not to show the Location Manager.
    */
