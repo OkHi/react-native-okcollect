@@ -25,7 +25,6 @@ import {
 import OkHiLocationManager, {
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
-import auth from 'OkHiAuth.js';
 
 function App() {
   const [launch, setLaunch] = React.useState(false);
@@ -71,7 +70,6 @@ function App() {
     <View style={{ flex: 1 }}>
       <Button onPress={() => setLaunch(true)} title="Start Verification" />
       <OkHiLocationManager
-        auth={auth}
         user={user}
         onSuccess={handleOnSuccess}
         onError={handleOnError}
