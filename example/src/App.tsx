@@ -33,8 +33,7 @@ export default function App() {
         theme={{
           appBar: {
             backgroundColor: '#333',
-            logo:
-              'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
+            logo: 'https://gblobscdn.gitbook.com/spaces%2F-LZKFOZdghaDd109RYxt%2Favatar.png?alt=media',
           },
           colors: {
             primary: '#333',
