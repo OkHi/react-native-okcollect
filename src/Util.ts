@@ -130,5 +130,9 @@ export const parseOkHiLocation = (location: any): OkHiLocation => {
     userId: location?.user_id,
     propertyNumber: location?.propertyNumber,
     photo: location?.photo,
+    displayTitle: location?.display_title,
+    country: location?.country,
+    state: location?.state,
+    city: location?.city,
   };
 };
