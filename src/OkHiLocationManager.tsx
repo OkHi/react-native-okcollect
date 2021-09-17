@@ -67,14 +67,19 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
         ErrorTracking.setExceptionUser(response.payload.user);
       }
     } catch (error) {
+      let errorMessage = 'Something went wrong';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
       ErrorTracking.captureException(
         OkHiException.UNKNOWN_ERROR_CODE,
-        error.message
+        errorMessage
       );
       onError(
         new OkHiException({
           code: OkHiException.UNKNOWN_ERROR_CODE,
-          message: error.message,
+          message: errorMessage,
         })
       );
     }
