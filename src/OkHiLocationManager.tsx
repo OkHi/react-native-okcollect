@@ -23,10 +23,8 @@ import {
  */
 const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
   const [token, setToken] = useState<string | null>(null);
-  const [
-    applicationConfiguration,
-    setApplicationConfiguration,
-  ] = useState<ApplicationConfiguration | null>(null);
+  const [applicationConfiguration, setApplicationConfiguration] =
+    useState<ApplicationConfiguration | null>(null);
   const defaultStyle = { flex: 1 };
   const style = props.style
     ? { ...props.style, ...defaultStyle }
@@ -61,10 +59,15 @@ const OkHiLocationManager = (props: OkHiLocationManagerProps) => {
         });
       }
     } catch (error) {
+      let errorMessage = 'Something went wrong';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
       onError(
         new OkHiException({
           code: OkHiException.UNKNOWN_ERROR_CODE,
-          message: error.message,
+          message: errorMessage,
         })
       );
     }
